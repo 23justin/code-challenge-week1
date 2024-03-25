@@ -1,19 +1,23 @@
-//Prompt the user to input the student marks.
+const readline = require("readline");
 
-const prompt =("prompt.sync")({sigint:true});
-
-const marks=("Enter student mark.")
-
-function generatestudentgrade (marks){
-  if (marks >79){
-    return 'A'
-  } else if(marks = 60 < 79){
-      return 'B'
-  } else if(marks = 49 < 60){
-     return 'C'
-  } else if (marks = 40 < 49){
-     return 'D'
-  } else {
-    return 'E';
-  }
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+rl.question("Enter the student's mark (between 0 and 100): ", (mark) => {
+  mark = parseInt(mark);
+  let grade;  
+if (marks >79){
+  return 'A'
+} else if(marks >= 60 && marks <=79){
+  grade ='B'
+} else if(marks >= 49 && marks < 60){
+  grade ='C'
+} else if (marks >= 40 && marks < 49){
+   grade = 'D'
+} else if (marks < 40){
+  grade ='E';
 }
+console.log(`Grade: ${grade}`);
+    rl.close();
+});

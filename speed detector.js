@@ -1,8 +1,8 @@
-//prompt the user to input the speed of the car
+const prompt = require("prompt-sync")({ sigint: true });
 
-const prompt =("prompt.sync")({sigint:true});
+//prompt the user to input the speed of the car
  
- const speed=("Enter the speed of the car")("speed of the car =km/hr")  
+const speed = parseFloat(prompt("Enter the speed of the car (in km/h):"))  
   
 
 function speedOfTheCar(speed){
@@ -12,14 +12,19 @@ function speedOfTheCar(speed){
     return 'Okay'
   }
     
-    let deductionperpiont= 5;
-    let diff =speed-70;
+    const deductionperpiont= 5;
+    const diff =speed-70;
 
-    demerits =Math.floor(diff/ deductionperpiont);
+    const demerits =Math.floor(diff/ deductionperpiont);
     
-    if(demerits>12){
+    if (demerits>=12){
       return 'licences suspend'
     
 
-  } 
+    } else {
+      return 'Points: ' + demerits;
+  }
 }
+
+// Output the result based on the speed of the car
+console.log(speedOfTheCar(speed));
